@@ -1,0 +1,13 @@
+{% extends 'apps/header.html' %}
+
+{% block title %}
+Worksheet Success
+{% endblock %}
+
+{% block header %}
+  <h3>Worksheet has been created successfully.</h3>
+  <br>
+  <hr>
+  <a class="btn btn-primary" href="{% url 'qapp:question_filter' %}" role="button">Add new worksheet</a>
+  <a class="btn btn-info" href="{% url 'members:teacher_detail' %}" role="button">My Profile</a>
+{% endblock %}

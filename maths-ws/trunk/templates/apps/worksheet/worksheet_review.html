@@ -1,0 +1,16 @@
+{% extends "apps/worksheet/worksheet_detail.html" %}
+
+{% block review %}
+<hr size="5" style="height:2px; color:black; background-color: black">
+<form method="post">
+	{% csrf_token %}
+	Select for approval: <input type="checkbox" name="flag">
+	<br>
+	<br>
+	<textarea name="reason" id="id_reason" cols="30" rows="10"
+		placeholder="Write the reason if you have rejected, else leave it blank"></textarea>
+	<br>
+	<br>
+	<button type="submit">Submit</button>
+</form>
+{% endblock review %}

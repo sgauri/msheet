@@ -1,0 +1,13 @@
+{% extends 'apps/header.html' %}
+
+{% block title %}
+Review Success
+{% endblock %}
+
+{% block header %}
+<h3>Your review has been saved successfully.</h3>
+<br>
+<hr>
+<a class="btn btn-info" href="{% url 'members:teacher_detail' %}" role="button">My Profile</a>
+<a class="btn btn-primary" href="{% url 'qapp:question_add' %}" role="button">Add Question</a>
+{% endblock %}

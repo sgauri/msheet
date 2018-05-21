@@ -1,0 +1,328 @@
+[
+    {
+        "model": "members.school",
+        "pk": 1,
+        "fields": {
+            "created_at": "2018-02-21T02:44:59.234Z",
+            "last_updated": "2018-02-21T02:44:59.234Z",
+            "school_name": "Fr. Agnel",
+            "address": "New Delhi",
+            "city": "New Delhi",
+            "state": "Delhi",
+            "pin": "110001",
+            "description": "description goes here",
+            "email": "example@email.com",
+            "logo": ""
+        }
+    },
+    {
+        "model": "members.school",
+        "pk": 2,
+        "fields": {
+            "created_at": "2018-03-03T12:51:30.446Z",
+            "last_updated": "2018-03-03T12:51:30.446Z",
+            "school_name": "test school",
+            "address": "school address",
+            "city": "c",
+            "state": "state",
+            "pin": "121212",
+            "description": "description",
+            "email": "a@b.com",
+            "logo": ""
+        }
+    },
+    {
+        "model": "members.classroom",
+        "pk": 1,
+        "fields": {
+            "created_at": "2018-02-21T02:45:19.939Z",
+            "last_updated": "2018-02-21T02:45:19.939Z",
+            "classroom": "2",
+            "school": 1
+        }
+    },
+    {
+        "model": "members.classroom",
+        "pk": 2,
+        "fields": {
+            "created_at": "2018-02-21T02:45:26.847Z",
+            "last_updated": "2018-02-21T02:45:26.847Z",
+            "classroom": "3",
+            "school": 1
+        }
+    },
+    {
+        "model": "members.classroom",
+        "pk": 3,
+        "fields": {
+            "created_at": "2018-02-21T02:45:32.068Z",
+            "last_updated": "2018-02-21T02:45:32.068Z",
+            "classroom": "4",
+            "school": 1
+        }
+    },
+    {
+        "model": "members.classroom",
+        "pk": 4,
+        "fields": {
+            "created_at": "2018-02-23T01:32:43.217Z",
+            "last_updated": "2018-02-23T01:32:43.217Z",
+            "classroom": "1",
+            "school": 1
+        }
+    },
+    {
+        "model": "members.classroom",
+        "pk": 5,
+        "fields": {
+            "created_at": "2018-02-23T01:32:49.083Z",
+            "last_updated": "2018-02-23T01:32:49.083Z",
+            "classroom": "5",
+            "school": 1
+        }
+    },
+    {
+        "model": "members.classsection",
+        "pk": 1,
+        "fields": {
+            "created_at": "2018-02-21T02:45:45.875Z",
+            "last_updated": "2018-02-21T02:45:45.875Z",
+            "class_section": "A",
+            "classroom": 1,
+            "school": 1
+        }
+    },
+    {
+        "model": "members.classsection",
+        "pk": 2,
+        "fields": {
+            "created_at": "2018-02-21T02:45:52.498Z",
+            "last_updated": "2018-02-21T02:45:52.498Z",
+            "class_section": "B",
+            "classroom": 2,
+            "school": 1
+        }
+    },
+    {
+        "model": "members.topic",
+        "pk": 1,
+        "fields": {
+            "created_at": "2018-02-21T02:46:12.761Z",
+            "last_updated": "2018-02-23T01:33:15.265Z",
+            "topic_name": "Arithmatic",
+            "school": 1,
+            "classrooms": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ]
+        }
+    },
+    {
+        "model": "members.topic",
+        "pk": 2,
+        "fields": {
+            "created_at": "2018-02-21T02:46:47.120Z",
+            "last_updated": "2018-02-23T01:33:06.263Z",
+            "topic_name": "Geometry",
+            "school": 1,
+            "classrooms": [
+                1,
+                2
+            ]
+        }
+    },
+    {
+        "model": "members.subtopic",
+        "pk": 1,
+        "fields": {
+            "created_at": "2018-02-21T02:47:05.367Z",
+            "last_updated": "2018-02-23T01:34:24.202Z",
+            "subtopic_name": "Addition-Subtraction",
+            "topic": 1,
+            "school": 1,
+            "classrooms": [
+                1,
+                2,
+                3
+            ]
+        }
+    },
+    {
+        "model": "members.subtopic",
+        "pk": 2,
+        "fields": {
+            "created_at": "2018-02-21T02:47:13.606Z",
+            "last_updated": "2018-02-24T18:06:16.876Z",
+            "subtopic_name": "Multiplication-Division",
+            "topic": 1,
+            "school": 1,
+            "classrooms": [
+                1,
+                2,
+                3
+            ]
+        }
+    },
+    {
+        "model": "members.subtopic",
+        "pk": 3,
+        "fields": {
+            "created_at": "2018-02-21T02:47:24.346Z",
+            "last_updated": "2018-02-24T18:06:09.462Z",
+            "subtopic_name": "2D Figures",
+            "topic": 2,
+            "school": 1,
+            "classrooms": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ]
+        }
+    },
+    {
+        "model": "members.subtopic",
+        "pk": 4,
+        "fields": {
+            "created_at": "2018-02-21T02:47:32.569Z",
+            "last_updated": "2018-02-24T18:06:03.565Z",
+            "subtopic_name": "Basic Shapes",
+            "topic": 2,
+            "school": 1,
+            "classrooms": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ]
+        }
+    },
+    {
+        "model": "members.profile",
+        "pk": 1,
+        "fields": {
+            "created_at": "2018-02-21T02:48:25.995Z",
+            "last_updated": "2018-02-21T03:03:31.577Z",
+            "role": "student",
+            "school": 1,
+            "name": "StudentName",
+            "email": "student@student.com",
+            "image": "images/student1_jXH1CTd.png",
+            "roll_number": "2",
+            "classroom": 1,
+            "class_section": 1,
+            "teacher_id": null,
+            "worksheets": [
+                1
+            ]
+        }
+    },
+    {
+        "model": "members.profile",
+        "pk": 2,
+        "fields": {
+            "created_at": "2018-02-21T02:49:04.987Z",
+            "last_updated": "2018-02-21T03:03:38.101Z",
+            "role": "student",
+            "school": 1,
+            "name": "StudentName2",
+            "email": "abhinav@gmail.com",
+            "image": "images/student2_2GT0ENx.png",
+            "roll_number": "19",
+            "classroom": 2,
+            "class_section": 2,
+            "teacher_id": null,
+            "worksheets": [
+                2
+            ]
+        }
+    },
+    {
+        "model": "members.profile",
+        "pk": 3,
+        "fields": {
+            "created_at": "2018-02-21T02:49:39.516Z",
+            "last_updated": "2018-02-21T07:12:06.613Z",
+            "role": "teacher",
+            "school": 1,
+            "name": "TeacherName",
+            "email": "pratik@gmail.com",
+            "image": "images/teacher1_czGRFHF.png",
+            "roll_number": null,
+            "classroom": null,
+            "class_section": null,
+            "teacher_id": "tid-1",
+            "worksheets": [
+                1,
+                2,
+                5,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15
+            ]
+        }
+    },
+    {
+        "model": "members.profile",
+        "pk": 4,
+        "fields": {
+            "created_at": "2018-02-21T02:50:06.540Z",
+            "last_updated": "2018-02-21T07:12:32.048Z",
+            "role": "teacher",
+            "school": 1,
+            "name": "TeacherName2",
+            "email": "rajesh@gmail.com",
+            "image": "images/default.png",
+            "roll_number": null,
+            "classroom": null,
+            "class_section": null,
+            "teacher_id": "tid10",
+            "worksheets": [
+                2,
+                5,
+                7,
+                8,
+                9,
+                10,
+                11,
+                13
+            ]
+        }
+    },
+    {
+        "model": "members.profile",
+        "pk": 6,
+        "fields": {
+            "created_at": "2018-03-04T00:26:13.841Z",
+            "last_updated": "2018-03-04T00:26:13.841Z",
+            "role": "teacher",
+            "school": 1,
+            "name": "Teacher 3",
+            "email": "teacher3@gmail.com",
+            "image": "images/default.png",
+            "roll_number": null,
+            "classroom": null,
+            "class_section": null,
+            "teacher_id": "tid-3",
+            "worksheets": [
+                8,
+                9,
+                10,
+                11,
+                14,
+                15
+            ]
+        }
+    }
+]

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Page Title</title>
+</head>
+<body>
+	<table border="1">
+		<thead>
+			<tr>
+				<td>Select</td>
+				<th>Question</th>
+				<th>Question Image</th>
+				<th>Difficulty</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for que in all_questions %}
+			<tr>
+				<td><input type="checkbox" name="quest" value="{{que.pk}}"></td>
+				<td>{{que.question}}</td>
+				<td>
+						{% if que.question_img %}
+							<img src="{{que.question_img.url}}" height="100" width="100" class="image">
+						{% else %}
+							<p>-</p>
+						{% endif %}
+				</td>
+				<td>{{ que.get_difficulty_display }}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	{% if all_questions.has_other_pages %}
+		<ul>
+		{% if all_questions.has_previous %}
+			<li><a href="?page={{all_questions.previous_page_number}}">&laquo;</a></li>
+		{% else %}
+			<li class="disabled"><span>&laquo;</span></li>
+		{% endif %}
+
+		{% for i in all_questions.paginator.page_range %}
+			{% if all_questions.number == i %}
+				<li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+			{% else %}
+				<li><a href="?page={{ i }}">{{ i }}</a></li>
+			{% endif %}
+		{% endfor %}
+		
+		{% if all_questions.has_next %}
+			<li><a href="?page={{ all_questions.next_page_number }}">&raquo;</a></li>
+		{% else %}
+			<li class="disabled"><span>&raquo;</span></li>
+		{% endif %}
+		</ul>
+	{% endif %}
+
+</body>
+</html>

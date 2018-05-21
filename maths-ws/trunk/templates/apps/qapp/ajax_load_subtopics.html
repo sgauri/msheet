@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+	<p><label for="id_subtopic">Subtopic:</label> <select name="subtopic" required id="id_subtopic">
+		<option value="" selected>---------</option>
+		{% for stopic in stopics %}
+			<option value="{{stopic.pk}}">{{stopic.subtopic_name}}</option>
+		{% endfor %}
+	</select></p>
+	
+</body>
+</html>

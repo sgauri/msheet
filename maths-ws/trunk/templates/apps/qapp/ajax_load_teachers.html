@@ -1,0 +1,22 @@
+<table id="id_load_teachers" class="table table-bordered">
+  <thead>
+    <tr>
+      <th>User Name</th>
+      <th>Full Name</th>
+      <th>Email</th>
+      <th>Select</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for teacher in all_teachers %}
+      <tr>
+        <td>{{teacher.user}}</td>
+        <td>{{teacher.name}}</td>
+        <td>{{teacher.email}}</td>
+        <td>
+          <input type="checkbox" name="all_teachers" id="id_all_teachers" value="{{teacher.pk}}">
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

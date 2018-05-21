@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+	<title>All Worksheets</title>
+</head>
+<body>
+	<h2>All Worksheets</h2>
+	<br>
+	<ul><h3>Class  -  Category  -  Due Date</h3></ul>
+	<hr>
+		{% if worksheet_list %}
+			<ul>
+				{% for worksheet in worksheet_list %}
+					<li>
+						<a href="/worksheet/{{worksheet.id}}">Class {{worksheet.classroom}} - {{worksheet.category}} - {{worksheet.due_date}}</a>
+					</li>
+				{% endfor %}
+		</ul>
+		{% else %}
+			<p>No worksheets available</p>
+		{% endif %}
+</body>
+</html>

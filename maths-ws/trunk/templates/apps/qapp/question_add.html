@@ -1,0 +1,80 @@
+{% extends 'apps/header.html' %}
+
+{% block title %}
+Add Question
+{% endblock %}
+
+{% block header %}
+  <h3 class="marginRow">Add Question</h3>
+	<hr class="marginRow">
+
+  {% if messages %}
+	<ul class="messages">
+    <div class="alert alert-{{message.tags}}">
+      {% for message in messages %}
+        <li class="{{message.tags}}">{{message.tags}} - {{ message }}</li>
+      {% endfor %}
+    </div>
+	</ul>
+	{% endif %}
+
+	<form method="post" id="questionForm" enctype="multipart/form-data"
+		data-topics-url="{% url 'qapp:ajax_load_html_classroom_topics' %}"
+		topic-subtopic-url="{% url 'qapp:ajax_load_subtopics' %}" novalidate>
+		{% csrf_token %}
+		<table class="table table-bordered">
+			{{form.as_table}}
+		</table>
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<script>
+		$("#id_classroom").change(function() {
+			var url = $('#questionForm').attr("data-topics-url");
+			var classroomId = $(this).val();
+
+			$.ajax({
+				url: url,
+				data: {'classroom':classroomId},
+				dataType: 'html',
+				success: function(data) {
+					$("#id_topic").html(data)
+				}
+			});
+		});
+	</script>
+
+	<script>
+		$('#id_topic').change(function() {
+			var url = $("#questionForm").attr("topic-subtopic-url");
+			var classroomId = $('#id_classroom').val();
+			var topicID = $(this).val();
+			
+			$.ajax({
+				url: url,
+				data: {'topic':topicID, 'classroom':classroomId},
+				dataType: 'html',
+				success:function(data){
+					$("#id_subtopic").html(data);
+				}
+			});
+		});
+	</script>
+
+	<script>
+		$(document).ready(function(){
+			$('#id_options').change(function(){
+				if ($("#id_question_type").val()==='mcq' || $("#id_question_type").val()==='lhs_rhs'){
+					$("#id_options").show();
+				} else {
+					$("#id_options").hide();
+				}
+			});
+		});
+	</script>
+
+{% endblock %}

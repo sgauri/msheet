@@ -1,0 +1,173 @@
+[
+    {
+        "model": "qapp.questions",
+        "pk": 1,
+        "fields": {
+            "created_at": "2018-02-09T12:33:59.344Z",
+            "last_updated": "2018-02-23T01:08:22.886Z",
+            "question": "match left right",
+            "question_img": "question_images/matching_hfuzLfs.png",
+            "school": 1,
+            "classroom": "2",
+            "topic": 2,
+            "subtopic": 3,
+            "difficulty": "l",
+            "question_type": "lhs_rhs",
+            "options": "B,D,E,A,C",
+            "answer": "B,D,E,A,C",
+            "solution": ""
+        }
+    },
+    {
+        "model": "qapp.questions",
+        "pk": 2,
+        "fields": {
+            "created_at": "2018-02-09T12:37:29.415Z",
+            "last_updated": "2018-02-12T08:42:16.786Z",
+            "question": "Match the correct count in the following image:",
+            "question_img": "question_images/match1.png",
+            "school": 1,
+            "classroom": "2",
+            "topic": 1,
+            "subtopic": 2,
+            "difficulty": "l",
+            "question_type": "lhs_rhs",
+            "options": "tiger",
+            "answer": "answers",
+            "solution": ""
+        }
+    },
+    {
+        "model": "qapp.questions",
+        "pk": 3,
+        "fields": {
+            "created_at": "2018-02-11T04:06:19.907Z",
+            "last_updated": "2018-02-21T03:02:59.830Z",
+            "question": "Fill in the blanks\r\n5+17-23+9 = ___",
+            "question_img": "",
+            "school": 1,
+            "classroom": "3",
+            "topic": 1,
+            "subtopic": 2,
+            "difficulty": "m",
+            "question_type": "fill_blank",
+            "options": "",
+            "answer": "9",
+            "solution": ""
+        }
+    },
+    {
+        "model": "qapp.questions",
+        "pk": 4,
+        "fields": {
+            "created_at": "2018-02-11T04:55:33.478Z",
+            "last_updated": "2018-02-21T03:02:30.966Z",
+            "question": "Angad has 3 cows, 2 hens and 1 horse. Find total number of legs of all animals?",
+            "question_img": "question_images/match2.png",
+            "school": 1,
+            "classroom": "3",
+            "topic": 1,
+            "subtopic": 2,
+            "difficulty": "l",
+            "question_type": "value",
+            "options": "20",
+            "answer": "20",
+            "solution": ""
+        }
+    },
+    {
+        "model": "qapp.questions",
+        "pk": 5,
+        "fields": {
+            "created_at": "2018-02-11T07:18:09.060Z",
+            "last_updated": "2018-02-11T07:18:09.060Z",
+            "question": "add following equations:\r\na+2b=4\r\n3a+5b=9",
+            "question_img": "",
+            "school": 1,
+            "classroom": "4",
+            "topic": 1,
+            "subtopic": 1,
+            "difficulty": "m",
+            "question_type": "value",
+            "options": "4a+6b=13",
+            "answer": "4a+6b=13",
+            "solution": ""
+        }
+    },
+    {
+        "model": "qapp.questions",
+        "pk": 6,
+        "fields": {
+            "created_at": "2018-02-11T10:32:58.019Z",
+            "last_updated": "2018-02-23T01:07:58.014Z",
+            "question": "add question here",
+            "question_img": "question_images/matching_wnvXrcf.png",
+            "school": 1,
+            "classroom": "4",
+            "topic": 2,
+            "subtopic": 4,
+            "difficulty": "h",
+            "question_type": "value",
+            "options": "",
+            "answer": "answer",
+            "solution": ""
+        }
+    },
+    {
+        "model": "qapp.questions",
+        "pk": 7,
+        "fields": {
+            "created_at": "2018-02-12T07:42:33.449Z",
+            "last_updated": "2018-02-12T07:48:46.869Z",
+            "question": "17.67 - 11.52 = ?",
+            "question_img": "",
+            "school": 1,
+            "classroom": "3",
+            "topic": 1,
+            "subtopic": 2,
+            "difficulty": "m",
+            "question_type": "value",
+            "options": "j",
+            "answer": "6.15",
+            "solution": ""
+        }
+    },
+    {
+        "model": "qapp.questions",
+        "pk": 8,
+        "fields": {
+            "created_at": "2018-02-12T07:45:33.868Z",
+            "last_updated": "2018-02-23T01:07:41.439Z",
+            "question": "Which is the correct shape ?\r\nFind 2D Shape",
+            "question_img": "",
+            "school": 1,
+            "classroom": "2",
+            "topic": 2,
+            "subtopic": 3,
+            "difficulty": "m",
+            "question_type": "value",
+            "options": "",
+            "answer": "3",
+            "solution": ""
+        }
+    },
+    {
+        "model": "qapp.questions",
+        "pk": 9,
+        "fields": {
+            "created_at": "2018-02-12T07:48:17.619Z",
+            "last_updated": "2018-02-12T07:48:35.638Z",
+            "question": "Match the time in left to correct clock -",
+            "question_img": "question_images/Screenshot_from_2018-02-12_13-09-54.png",
+            "school": 1,
+            "classroom": "4",
+            "topic": 1,
+            "subtopic": 2,
+            "difficulty": "h",
+            "question_type": "lhs_rhs",
+            "options": "fill your answers",
+            "answer": "b, d, e, a, c",
+            "solution": ""
+        }
+    }
+]

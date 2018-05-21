@@ -1,0 +1,19 @@
+{% for que in questions_list %}
+  <tr>
+    <td>{{que.question|linebreaks}}</td>
+    <td>
+      {% if que.question_img %}
+        <img src="{{que.question_img.url}}" height="150" width="150" class="image">
+      {% else %}
+        <p>--</p>
+      {% endif %}
+    </td>
+    <td>{{que.get_classroom_display}}</td>
+    <td>{{que.get_difficulty_display}}</td>
+    <td>{{que.topic}}</td>
+    <td>{{que.subtopic}}</td>
+    <td>
+      <input type="checkbox" name="question_pk" id="id_question_pk" value="{{que.pk}}"/>
+    </td>
+  </tr>
+{% endfor %}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+	<title>Worksheet</title>
+  <style>
+    #p1 {
+    display: inline-block;
+    text-decoration: none;
+    padding: 5px;
+    margin: 25px;
+    }
+    .submission {
+      padding: 5px;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+  <form action="/success/" method="post">
+    <p id="p1"><b>School</b> : {{wsheet.school}}</p>
+    <p id="p1"><b>Due Date</b> : {{wsheet.due_date}}</p>
+    <p id="p1"><b>Class</b> : {{wsheet.classroom}}</p>
+    <p id="p1"><b>Worksheet</b> : {{wsheet.category}}</p>
+    <p id="p1"><b>Duration</b> : {{wsheet.duration}} min</p>
+
+    <h3>Questions : </h3> <br>
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>S.N.</th>
+          <th>Question</th>
+          <th>Image</th>
+          <th>Answers</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for que in wsheet.question.all %}
+          <tr>
+            {% if que.question_img %}
+              <td>{{forloop.counter}}.</td>
+              <td>{{que}}</td>
+              <td><img src="{{que.question_img.url}}" height="200" width="200" class="image"></td>
+              <td><input type="text" name={{que.id}} class="answers"></td>
+            {% else %}
+              <td>{{forloop.counter}}.</td>
+              <td>{{que}}</td>
+              <td>-</td>
+              <td><input type="text" name={{que.id}} class="answers"></td>
+            {% endif %}
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <br>
+    <input type="submit" value="Submit Answers" class="submission">
+  </form>
+  <!-- <script>
+    $(document).ready(function(){
+      $('.image').on('click', ()=>{
+        $('.image').width(400);
+        $('.image').height(400);
+      });
+      $('.image').on('click', ()=>{
+        $('.image').width(200);
+        $('.image').height(200);
+    });
+  </script> -->
+</body>
+</html>

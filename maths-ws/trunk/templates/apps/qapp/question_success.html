@@ -1,0 +1,14 @@
+{% extends 'apps/header.html' %}
+
+{% block title %}
+Add Question
+{% endblock %}
+
+{% block header %}
+	<h3>Question has been added successfully.</h3>
+	<br>
+	<hr>
+	<br>
+	<a class="btn btn-primary" href="{% url 'qapp:question_add' %}" role="button">Add More Questions</a>
+	<a class="btn btn-info" href="{% url 'members:teacher_detail' %}" role="button">My Profile</a>
+{% endblock %}

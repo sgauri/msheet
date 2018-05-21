@@ -1,0 +1,18 @@
+{% extends 'apps/header.html' %}
+
+{% block title %}
+Review Closed
+{% endblock %}
+
+
+{% block header %}
+<h3>You can not review this sheet now due to one of the following reason:</h3>
+<hr>
+<br>
+<h4><li>Timeline for reviewing is past 2 days.</li></h4>
+<br>
+<h4><li>You have already reviewed this sheet.</li></h4>
+<br>
+<hr>
+<a class="btn btn-info" href="{% url 'members:teacher_detail' %}" role="button">Go to Profile</a>
+{% endblock %}

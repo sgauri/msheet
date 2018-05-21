@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home Page</title>
+</head>
+<body>
+	<h2>Home Page</h2>
+	<hr>
+	<br>
+	<ul>
+		<p><a href="{% url 'members:login' %}">Click here for login</a></p>
+		<a href="{% url 'qapp:question_filter' %}" target="_blank">Add New Worksheet</a>
+		<p><a href="/worksheet/1/answers">View Answers</a></p>
+		<a href="{% url 'qapp:question_add' %}" target="_blank">Add New Question</a>
+	</ul>
+</body>
+</html>

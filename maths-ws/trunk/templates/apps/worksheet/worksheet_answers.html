@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #p1 {
+    display: inline-block;
+    text-decoration: none;
+    padding: 5px;
+    margin: 25px;
+    }
+  </style>
+	<meta charset="utf-8" />
+	<title>{{full_wsheet.get_category_display}} Answers</title>
+</head>
+<body>
+    <p id="p1"><b>School</b> : {{full_wsheet.school}}</p>
+    <p id="p1"><b>Due Date</b> : {{full_wsheet.due_date}}</p>
+    <p id="p1"><b>Class</b> : {{full_wsheet.classroom}}</p>
+    <p id="p1"><b>Worksheet</b> : {{full_wsheet.get_category_display}}</p>
+    <p id="p1"><b>Duration</b> : {{full_wsheet.duration}} min</p>
+
+    <h3>Questions : </h3> <br>
+
+    {% for que in full_wsheet.question.all %}
+      
+      {% if que.question_img %}
+
+        <p>Ans {{forloop.counter}} : {{que.answer}}</p>
+        {% if que.solution %}
+          <p>Solution {{forloop.counter}} : {{que.solution}}</p>
+        {% endif %}
+        
+      {% else %}
+
+        <p>Ans {{forloop.counter}} : {{que.answer}}</p>
+        {% if que.solution %}
+          <p>Solution {{forloop.counter}} : {{que.solution}}</p>
+        {% endif %}
+
+      {% endif %}
+      
+    {% endfor %}
+
+</body>
+</html>

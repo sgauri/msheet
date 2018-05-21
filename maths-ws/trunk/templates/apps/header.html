@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+
+<html lang="en">
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{% static 'apps/css/mathsheet.css' %}" type="text/css">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-default marginRow">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a href="/" class="navbar-brand">Shine-Math</a>
+      </div>
+
+      <ul class="nav navbar-nav">
+        <li><a href="{% url 'members:teacher_detail' %}">Profile</a></li>
+        <li><a href="{% url 'qapp:question_add' %}">Add Question</a></li>
+        <li><a href="{% url 'qapp:question_filter' %}">Create Worksheet</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'members:logout' %}">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="content container marginRow">
+    <div class="row marginRow">
+        {% block header %}
+        {% endblock %}
+    </div>
+  </div>
+</body>
+</html>

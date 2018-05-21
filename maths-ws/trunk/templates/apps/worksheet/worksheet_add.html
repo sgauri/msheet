@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Worksheet</title>
+</head>
+<body>
+	<p>Add Worksheet</p>
+	<hr>
+	<br>
+	<form action="{% url 'worksheet:worksheet_add' %}" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		<table border="1">
+			{{form.as_table}}
+		</table>
+		<br>
+		<button type="submit">Submit</button>
+	</form>
+</body>
+</html>

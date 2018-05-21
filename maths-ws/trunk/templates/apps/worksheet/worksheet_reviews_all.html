@@ -1,0 +1,31 @@
+{% extends 'apps/header.html' %}
+
+{% block title %}
+All Reviews
+{% endblock %}
+
+{% block header %}
+	<h2>Worksheet Approval</h2>
+	<hr>
+	<br>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>Reviewed by</th>
+				<th>Reviews</th>
+				<th>Approval</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% if reviews %}
+				{% for review in reviews %}
+					<tr>
+						<td>{{review.shared_with.name}}</td>
+						<td>{{review.reason}}</td>
+						<td>{{review.flag}}</td>
+					</tr>
+				{% endfor %}
+			{% endif %}
+		</tbody>
+	</table>
+{% endblock %}}

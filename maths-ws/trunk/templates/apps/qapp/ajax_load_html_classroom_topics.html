@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+  <p><label for="id_topic">Topic:</label> <select name="topic" required id="id_topic">
+
+    <option value="" selected>---------</option>
+    {% for topic in topics %}
+    <option value="{{topic.pk}}">{{topic.topic_name}}</option>
+    {% endfor %}
+  
+  </select></p>
+</body>
+</html>

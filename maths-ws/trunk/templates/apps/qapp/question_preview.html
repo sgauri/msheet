@@ -1,0 +1,74 @@
+{% extends 'apps/header.html' %}
+
+{% block title %}
+Preview Worksheet
+{% endblock %}
+
+{% block header %}
+	<div id="question_preview_id" class="question_preview_class">
+		<h4 class="marginRow"><b>Preview Questions</b></h4>
+		<hr class="marginRow">
+		<h5 class="marginRow">Class: {{classroom}}</h5>
+		<div class="t1 marginRow">
+			<h5 class="t1"><b>Topics: </b></h5>
+			{% for topic in topics %}
+				<li class="t1">{{topic.topic_name}} /</li>
+			{% endfor %}
+		</div>
+		<form method="post" id="question_preview_form">
+
+			<p><label for="id_category">Category:</label>
+				<select name="category" id="id_category" required>
+					<option value="" selected>---------</option>
+					<option value="testing">Test</option>
+					<option value="practice">Practice</option>
+					<option value="homework">Home Work</option>
+					<option value="quiz">Quiz</option>
+					<option value="classwork">Class-Work</option>
+				</select>
+			</p>
+
+			<p><label for="id_duration">Duration:</label> <input type="number" name="duration" id="id_duration" required min="0" /> mins</p>
+			<p><label for="id_due_date">Due date:</label> <input type="date" name="due_date" id="id_due_date" required /></p>
+			<hr class="marginRow">
+			<h3 class="marginRow">Questions</h3>
+			
+			<hr class="marginRow">
+			{% if preview_questions %}
+				{% csrf_token %}
+				{% for que in preview_questions %}
+					{% if que.question_img %}
+						<p>{{forloop.counter}}. {{que|linebreaks}}</p>
+						<img src="{{que.question_img.url}}" height="150" width="150">
+					{% else %}
+						<p>{{forloop.counter}}. {{que|linebreaks}}</p>
+					{% endif %}
+				{% endfor %}
+				<hr>
+				{% if wsheet_id == 'None' %}
+					<button type="button" id="id_share_button" class="btn btn-info">Share with Teachers</button>
+					<hr>
+					<div id="div_id_load_teachers"></div>
+					<hr>
+				{% endif %}
+				<button type="submit" class="btn btn-success">Submit</button>
+			{% else %}
+				<p>You have not selected any questions. Please try again</p>
+			{% endif %}
+		</form>
+
+		{% if messages %}
+		<ul class="messages">
+			{% for message in messages %}
+				<li class="{{message.tags}}">{{message.tags}} - {{ message }}</li>
+			{% endfor %}
+		</ul>
+		{% endif %}
+	</div>
+
+	<script>
+		$('#id_share_button').click(function(){
+			$('#div_id_load_teachers').load("{% url 'qapp:ajax_load_teachers' %}")
+		});
+	</script>
+{% endblock %}

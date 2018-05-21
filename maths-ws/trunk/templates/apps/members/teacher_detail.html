@@ -1,0 +1,118 @@
+{% extends 'apps/header.html' %}
+
+{% block title %}
+My Profile
+{% endblock %}
+
+{% block header %}
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-12 lead">{{teacher.name}}<hr></div>
+          </div>
+          <div class="row">
+						<div class="col-md-4 text-center">
+              <img class="avatar avatar-original" style="-webkit-user-select:none;display:block;
+              margin:auto;" src="{{teacher.image.url}}" height="150" width="150">
+            </div>
+            <div class="col-md-8">
+              <div class="row">
+                <div class="col-md-12">
+                  <h4 class="only-bottom-margin">User: {{request.user.username}}</h4>
+                </div>
+              </div>
+							<div class="row">
+                <div class="col-md-6">
+									<span class="text-muted">School:</span> {{teacher.school}}<br>
+                  <span class="text-muted">Email:</span> {{teacher.email}}<br>
+									<span class="text-muted">Teacher ID:</span> {{teacher.teacher_id}}<br>
+                </div>
+              </div>
+            </div>
+          </div>
+         </div>
+      </div>
+    </div>
+  </div>
+</div>
+	<!--<div class="activity-mini">-->
+	<h3>Worksheets : </h3>
+	<!--<i class="glyphicon">Total_Created:</i> {{teacher.worksheets.count}}-->
+	<!--</div>-->
+	<hr class="marginRow">
+	<h4>Created by me: </h4>
+	<table class="table table-bordered table-hover table-striped">
+		<thead>
+			<tr>
+				<th>Type</th>
+				<th>Grade</th>
+				<th>Created On</th>
+				<th>Due Date</th>
+				<th>Approval</th>
+				<th>Answers</th>
+				<th>Teacher Reviews</th>
+				<th>Edit Worksheet</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for wsheet in self_created %}
+				{% if wsheet %}
+					<tr>
+						<td><a href="/worksheet/{{wsheet.worksheet.id}}">{{wsheet.worksheet.get_category_display}}</a></td>
+						<td>{{wsheet.worksheet.get_classroom_display}}</td>
+						<td>{{wsheet.created_at}}</td>
+						<td>{{wsheet.worksheet.due_date}}</td>
+						<td>{{wsheet.flag}}</td>
+						<td><a href="/worksheet/{{wsheet.worksheet.id}}/answers">View</a></td>
+						<td><a href="/worksheet/{{wsheet.worksheet.id}}/reviews/all">Teacher Reviews</a></td>
+						<td>
+							<form action="{% url 'qapp:question_filter' %}" method="get" target="_blank">
+								<input type="hidden" value="{{wsheet.worksheet.id}}" name="edit">
+								<button type="submit" class="btn btn-info"><i class="glyphicon glyphicon-pencil"></i> Edit</button>
+							</form>
+						</td>
+					</tr>
+				{% else %}
+					<p>No worksheets created.</p>
+				{% endif %}
+			{% endfor %}
+		</tbody>
+	</table>
+	<hr class="marginRow">
+	<h4>Shared with me: </h4>
+
+	<table class="table table-bordered table-hover table-striped">
+		<thead>
+			<tr>
+				<th>Type</th>
+				<th>Grade</th>
+				<th>Shared On</th>
+				<th>Due Date</th>
+				<th>Shared by</th>
+				<th>Approval</th>
+				<th>Review</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for wsheet in shared_by_others %}
+				{% if wsheet %}
+					<tr>
+						<td><a href="/worksheet/{{wsheet.worksheet.id}}">{{wsheet.worksheet.get_category_display}}</a></td>
+						<td>{{wsheet.worksheet.get_classroom_display}}</td>
+						<td>{{wsheet.created_at}}</td>
+						<td>{{wsheet.worksheet.due_date}}</td>
+						<td>{{wsheet.shared_by.name}}</td>
+						<td>{{wsheet.flag}}</td>
+						<td><a href="/worksheet/{{wsheet.worksheet.id}}/review">Review</a></td>
+					</tr>
+				{% else %}
+					<p>No Shared Worksheets.</p>
+				{% endif %}
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

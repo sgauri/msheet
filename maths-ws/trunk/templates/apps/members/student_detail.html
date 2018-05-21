@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>Student Detail</title>
+</head>
+
+<body>
+	<h4>Welcome {{request.user.username}}</h4>
+
+	<h2>Student Profile</h2>
+	<hr>
+	<a href="{% url 'members:logout' %}" style="float:right;">Log out</a>
+
+	<p id="p1"><b>School</b> : {{student.school}}</p>
+	<br>
+	<br>
+	{% if student.image.url %}
+		<img src="{{student.image.url}}" height="150" width="150">
+  {% else %}
+    <p>Image not available</p>
+	{% endif %}
+	
+	<p id="p2">Name : {{student.name}}</p>
+	<p id="p2"> Class : {{student.classroom}}</p>
+	<p id="p2">Class Section : {{student.class_section}}</p>
+	<p id="p2"> Roll Number : {{student.roll_number}}</p>
+	<p id="p3">Email : {{student.email}}</p>
+
+	<h3>Worksheets : </h3>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>Type</th>
+				<th>Due Date</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for worksheet in student.worksheets.all %}
+				{% if worksheet %}
+					<tr>
+						<td><a href="/worksheet/{{worksheet.id}}/answers">{{worksheet.category}}</a></td>
+						<td>{{worksheet.due_date}}</td>
+					</tr>
+				{% else %}
+					<p>No work</p>
+				{% endif %}
+			{% endfor %}
+		</tbody>
+	</table>
+</body>
+</html>
